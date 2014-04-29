@@ -1,0 +1,370 @@
+\documentclass[a4paper,14pt]{extarticle}
+
+\usepackage{cmap} % improved search for russian words in pdf
+
+% Nice cyrillic fonts
+\usepackage{pscyr}
+\renewcommand{\rmdefault}{ftm} % Times New Roman
+%\renewcommand{\sfdefault}{ftx}
+%\renewcommand{\ttdefault}{cmttp} % not good ttf
+
+% Links
+\usepackage{hyperref}
+\hypersetup{
+        unicode=true,
+        colorlinks,
+        citecolor=black,
+        filecolor=black,
+        linkcolor=black,
+        urlcolor=blue
+}
+\usepackage[all]{hypcap} % fix links to floats
+
+\usepackage{mathtext}
+\usepackage[mathscr]{eucal}
+
+\usepackage[T2A]{fontenc} % Russian support
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\usepackage[utf8]{inputenc} % UTF8
+\usepackage[english,russian]{babel}
+
+% Mathematical AMS packages
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amscd}
+
+% Provides support for setting the spacing between lines in a document. Package
+% options include singlespacing, onehalfspacing, and doublespacing.
+\usepackage{setspace}
+\onehalfspacing % one half spacing
+
+\usepackage{indentfirst} % indent
+\setlength{\parindent}{1.25cm}
+
+% Alternative geometry
+\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=1.5cm, bindingoffset=0cm,
+ 			headheight=0cm, footskip=1cm, headsep=0cm]{geometry}
+
+% Nice citations [1,2,3,4] -> [1-4]
+\usepackage[numbers,sort&compress]{natbib}
+
+\usepackage{soul} % hyphenation for letterspacing, underlining and more
+
+\sloppy % makes TeX less fussy about line breaking
+
+% Support for the upright and bold greek letters
+\usepackage{bm}
+\usepackage[Symbolsmallscale]{upgreek}
+\makeatletter
+        \newcommand{\bfgreek}[1]{\bm{\@nameuse{up#1}}}
+\makeatother
+
+\usepackage{graphicx} % for graphics
+\graphicspath{{images/}} % images path
+
+\usepackage{tikz} % for drawing
+\usetikzlibrary{shapes,arrows}
+
+\usepackage{titlesec} % select alternative section titles
+\usepackage{titletoc} % alternative headings for toc/lof/lot
+
+% Keeps floats `in their place', preventing them from floating past a
+% "\FloatBarrier" command into another section.  The floats should not move
+% past every "\section".
+\usepackage[section]{placeins}
+
+\usepackage{longtable} % long table support
+\usepackage{multirow,makecell,array}	 % advanced table style
+\usepackage{tabularx}
+
+\usepackage{float}
+
+% Useful for individually placing figures on a separate page with
+% \afterpage{\clearpage \begin{figure}[p] ... }
+\usepackage{afterpage}
+
+
+% --------------------------------------------------------------------------%
+% Numeration of pages
+% --------------------------------------------------------------------------%
+\pagestyle{headings}
+\makeatletter
+\renewcommand{\@oddhead}{}
+\renewcommand{\@oddfoot}{\hfil \thepage}
+\setcounter{tocdepth}{2}
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% Table of contents
+% --------------------------------------------------------------------------%
+\renewcommand{\tableofcontents}%
+{\structformat\section*{СОДЕРЖАНИЕ}\@starttoc{toc}
+}
+
+\renewcommand{\@dotsep}{1.5}
+\renewcommand{\@pnumwidth}{1.0em}
+
+\newcommand{\l@abcd}[2]{{\@dottedtocline{0}{0pt}{0pt}{#1}{#2}}}
+
+\renewcommand{\l@section}{\@dottedtocline{1}{0em}{1.2em}}
+\renewcommand{\l@subsection}{\@dottedtocline{2}{1.2em}{2.0em}}
+\makeatother
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% Sections, subsections
+% --------------------------------------------------------------------------%
+% Numbering
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}
+        {\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+\newcommand{\sectionbreak}{\clearpage}
+
+% Contents, intro, conclusion
+\newcommand{\structformat}
+{
+   \titleformat{\section}[block]
+   {\centering\bfseries}
+   {\thesection }{}{}
+}
+
+% Sections, subsections
+\newcommand{\secformat}
+{
+    \titleformat{\section}[block]
+    {\hspace{1.25cm}\raggedright\bfseries}
+    {\thesection}{1ex}{}
+}
+
+\newcommand{\starsection}[1]{
+    \structformat
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+    \setcounter{section}{0}
+    \secformat
+}
+
+\newcommand{\intro}{\starsection{ВВЕДЕНИЕ}}
+\newcommand{\conclusion}{\starsection{ЗАКЛЮЧЕНИЕ}}
+
+\titleformat{\subsection}[block]{\hspace{1.25cm}\normalfont\raggedright\bfseries}
+		{\thesubsection}{1ex}{}
+\titleformat{\subsubsection}[block]{\hspace{1.25cm}\normalfont\raggedright}
+		{\thesubsubsection}{1ex}{}
+
+\titlespacing*{\section}{0pt}{3ex plus 1ex minus .2ex}{3ex plus.2ex}
+\titlespacing*{\subsection}{0pt}{2ex plus 1ex minus .2ex}{.3ex plus.2ex}
+\titlespacing*{\subsubsection}{0pt}{2ex plus 1ex minus .2ex}{.3ex plus.2ex}
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% Table and figure captions
+% --------------------------------------------------------------------------%
+\usepackage{caption}
+\def\CaptionName#1{\gdef\@captionname{#1}}
+\newlength\tmp %10cm
+\setlength{\tmp}{1ex}
+\setlength{\belowcaptionskip}{1ex}
+\setlength{\abovecaptionskip}{1ex}
+
+\captionsetup[table]{name=Таблица, labelsep=endash, format=plain, justification=RaggedRight,
+			singlelinecheck=false, font={small}, position=top}
+\captionsetup[figure]{name=Рисунок, labelsep=endash, justification=centering,
+			font={small}, skip=\abovecaptionskip, position=below}
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% Table and figure numbering by sections
+% --------------------------------------------------------------------------%
+\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
+\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
+
+\makeatletter
+\@addtoreset{equation}{section} % Equation counter
+\@addtoreset{figure}{section} % Figure counter
+\@addtoreset{table}{section} % Table counter
+\makeatother
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% Theorem, proof, definition, lemma, proposition, corollary
+% --------------------------------------------------------------------------%
+\newtheoremstyle{note}  % name
+     {3mm}              % Space above
+     {3mm}              % Space below
+     {}                 % Body font
+     {\parindent}       % Indent amount (empty = no indent, \parindent = para indent)
+     {\bfseries}        % Thm head font
+     {.}                % Punctuation after thm head
+     { }                % Space after thm head: " " = normal interword space; \newline = linebreak
+     {}                 % Thm head spec (can be left empty, meaning 'normal')
+
+\theoremstyle{note}
+
+\newtheorem{definition}{Определение}
+\newtheorem{theorem}{Теорема}
+\newtheorem{lemma}{Лемма}
+\newtheorem{proposition}{Предложение}
+\newtheorem{corollary}{Следствие}
+
+\renewcommand{\proof}{\textbf{Доказательство.}\ignorespaces{\pushQED{\qed}}}
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% Enumerations
+% --------------------------------------------------------------------------%
+\makeatletter
+\renewcommand\theenumi  {\@arabic\c@enumi}
+\renewcommand\theenumii {\@asbuk\c@enumii}
+\renewcommand\theenumiii{\@roman\c@enumiii}
+\renewcommand\theenumiv {\@Asbuk\c@enumiv}
+\newcommand\atheenumi{\@asbuk\c@enumi}
+\newcommand\atheenumii{\@asbuk\c@enumii}
+\renewcommand\labelenumi  {\theenumi.}
+\renewcommand\labelenumii {\theenumii.}
+\renewcommand\labelenumiii{\theenumiii.}
+\renewcommand\labelenumiv {\theenumiv.}
+\renewcommand\p@enumii  {\theenumi}
+\renewcommand\p@enumiii {\theenumi.\theenumii}
+\renewcommand\p@enumiv  {\p@enumiii.\theenumiii}
+\renewcommand\labelitemi  {\normalfont\bfseries\textemdash}
+\renewcommand\labelitemii {\normalfont\bfseries\textendash}
+\renewcommand\labelitemiii{\textperiodcentered}
+\renewcommand\labelitemiv {\textasteriskcentered}
+
+\renewcommand{\@listI}{%
+\leftmargin=52pt
+\rightmargin=0pt
+\labelsep=7pt
+\labelwidth=20pt
+\itemindent=0pt
+\listparindent=0pt
+\topsep=4pt plus 2pt minus 4pt
+\partopsep=0pt plus 1pt minus 1pt
+\parsep=0pt plus 1pt
+\itemsep=\parsep}
+\makeatother
+
+% Compressed lists: compactitem etc.
+\usepackage{paralist}
+
+\usepackage{enumitem}
+\setlist[itemize]{fullwidth, listparindent=\parindent}
+\setlist[enumerate]{fullwidth, itemindent=\parindent, listparindent=\parindent}
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% References
+% --------------------------------------------------------------------------%
+\makeatletter
+\def\@biblabel#1{#1 }
+
+\renewenvironment{thebibliography}[1]
+{
+  \starsection{СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ}
+  \list{\@biblabel{\@arabic\c@enumiv}}%
+  {\settowidth\labelwidth{\@biblabel{#1}}%
+    \leftmargin\labelwidth
+    %\advance\leftmargin-20pt
+    \advance\leftmargin\labelsep
+    %\setlength\itemindent{2cm}
+    \setlength{\itemsep}{0pt}
+    \@openbib@code
+    \usecounter{enumiv}%
+    \let\p@enumiv\@empty
+    \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+  \sloppy
+  \clubpenalty4000
+  \@clubpenalty \clubpenalty
+  \widowpenalty4000%
+  \sfcode`\.\@m}
+{\def\@noitemerr
+  {\@latex@warning{Empty `thebibliography' environment}}%
+  \endlist}
+
+\makeatother
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% Appendices
+% --------------------------------------------------------------------------%
+\usepackage{appendix}
+\makeatletter
+\def\redeflsection{\def\l@section{\@dottedtocline{1}{0em}{10em}}}
+\renewcommand{\appendix}{\par%
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \renewcommand{\appendixname}{ПРИЛОЖЕНИЕ}%
+  \def\sectionname{\appendixname}%
+  \addtocontents{toc}{\protect\redeflsection}%
+  \gdef\thesection{\@Alph\c@section}%
+
+  \titleformat{\section}[display]
+    {\centering\normalfont\bfseries}
+  {\appendixname\hspace{1ex}\thesection}{1ex}{}
+  \titlespacing{\section}
+  {0cm}{1ex plus 01ex minus .2ex}{4ex plus.2ex}
+
+  \titlecontents{section}
+  [3ex]
+  {\hspace{-3ex}}
+  {\appendixname~\thecontentslabel.\hspace{1ex}}
+  {\hspace{2.3em}}
+  {\titlerule*[0.98ex]{.}\contentspage}
+
+}
+\makeatother
+% --------------------------------------------------------------------------%
+
+
+% --------------------------------------------------------------------------%
+% Listings
+% --------------------------------------------------------------------------%
+\usepackage{listings}
+\lstset{
+	language=Java,
+	inputencoding=cp1251,
+	extendedchars=true,
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	basicstyle=\ttfamily\small,
+	stringstyle=\bf,
+	tabsize=4,
+    columns=fixed,
+    %flexiblecolumns=true,
+    %numbers=left,
+    %numbersep=8pt,
+    %numberstyle=\footnotesize\tiny\color{darkgray},
+	breaklines=true,
+	breakatwhitespace=false
+}
+% ------------------------------------------------------------------------------
+
+\begin{document}
+
+% Титульный лист
+\include{diploma_title}
+
+% Содержание
+\tableofcontents
+
+% Текст работы
+\include{diploma_content}
+
+% Список использованных источников
+\include{diploma_references}
+
+% Приложения
+\include{diploma_appendix}
+
+\end{document}

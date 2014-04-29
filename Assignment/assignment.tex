@@ -1,0 +1,131 @@
+\documentclass[a4paper,14pt]{extarticle}
+
+\usepackage{cmap} % improved search for russian words in pdf
+
+% Nice cyrillic fonts
+\usepackage{pscyr}
+\renewcommand{\rmdefault}{ftm} % Times New Roman
+%\renewcommand{\sfdefault}{ftx}
+%\renewcommand{\ttdefault}{cmttp} % not good ttf
+
+\usepackage[T2A]{fontenc} % Russian support
+\DeclareSymbolFont{T2Aletters}{T2A}{cmr}{m}{it}
+\usepackage[utf8]{inputenc} % UTF8
+\usepackage[english,russian]{babel}
+
+% Provides support for setting the spacing between lines in a document. Package
+% options include singlespacing, onehalfspacing, and doublespacing.
+\usepackage{setspace}
+\onehalfspacing % one half spacing
+
+\usepackage{indentfirst} % indent
+\setlength{\parindent}{1.25cm}
+
+% Alternative geometry
+\usepackage[top=1.8cm, bottom=1.8cm, left=2.5cm, right=1.5cm, bindingoffset=0cm,
+ 			headheight=0cm, footskip=1cm, headsep=0cm]{geometry}
+
+\usepackage{soul} % hyphenation for letterspacing, underlining and more
+
+\sloppy % makes TeX less fussy about line breaking
+
+\usepackage{titlesec} % select alternative section titles
+
+\usepackage{float}
+
+\pagestyle{empty}
+
+\begin{document}
+
+\begin{center}
+\singlespacing
+Министерство образования и науки Российской Федерации\\
+\medskip
+\mbox{ФЕДЕРАЛЬНОЕ ГОСУДАРСТВЕННОЕ БЮДЖЕТНОЕ ОБРАЗОВАТЕЛЬНОЕ}\\
+УЧРЕЖДЕНИЕ ВЫСШЕГО ПРОФЕССИОНАЛЬНОГО ОБРАЗОВАНИЯ\\
+<<САРАТОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ\\
+ИМЕНИ Н.Г. ЧЕРНЫШЕВСКОГО>>
+\end{center}
+
+\vspace{0.5cm}
+\begin{flushright}
+\parbox{6.8cm}{
+\raggedright
+  Кафедра системного анализа \\ и автоматического управления
+}
+\end{flushright}
+
+\vspace{1cm}
+\begin{center}
+\textbf{ЗАДАНИЕ}\\
+\textbf{на выпускную квалификационную работу специалиста}
+\end{center}
+
+\begin{flushleft}
+по специальности 010501 --- прикладная математика и информатика\\
+студента 5 курса факультета компьютерных наук и информационных технологий\\
+Салина Романа Владимировича
+\medskip
+
+Тема работы: <<Исследование производственных систем с маршрутизацией, зависящей от состояния>>
+\end{flushleft}
+
+\vfill
+
+\noindent
+\begin{flushleft}
+Научный руководитель\\
+доцент, к.ф.-м.н. \hfill В. И. Долгов\\
+\vspace{10mm}
+Заведующий кафедрой\\
+д.т.н., профессор \hfill Ю. И. Митрофанов
+\end{flushleft}
+
+\vfill
+
+\begin{center}
+Саратов 2014
+\end{center}
+
+\clearpage
+\centerline{\textbf{Содержание работы}}
+
+\noindent
+\begin{flushleft}
+ВВЕДЕНИЕ\\
+1~~Основные понятия массового обслуживания\\
+\quad 1.1~~Некоторые распределения случайных величин\\
+\quad 1.2~~Процесс размножения и гибели\\
+\quad 1.3~~Основные параметры и характеристики сетей массового обслуживания\\
+2~~Гибкие производственные системы с маршрутизацией, зависящей от состояния\\
+\quad 2.1~~Описание модели\\
+\quad 2.2~~Решение уравнения равновесия\\
+3~~Алгоритм метода анализа производственных систем с маршрутизацией, зависящей от состояния\\
+\quad 3.1~~Описание алгоритма\\
+\quad 3.2~~Структурная схема алгоритма\\
+4~~Описание и назначение программы\\
+\quad 4.1~~Список идентификаторов\\
+\quad 4.2~~Описание программы\\
+\quad 4.3~~Описание и назначение функций\\
+5~~Аспекты практического применения\\
+ЗАКЛЮЧЕНИЕ\\
+СПИСОК ИСПОЛЬЗОВАННЫХ ИСТОЧНИКОВ\\
+Приложение A. Код программы
+\end{flushleft}
+\begin{flushleft}
+\textbf{Срок представления работы:}~\makebox[4cm]{\hrulefill}\\
+\hspace{6.8cm} число, месяц, год
+\medskip\\
+Рассмотрено и одобрено на заседании кафедры системного анализа и~автоматического управления\\
+Протокол \textnumero~\makebox[1cm]{\hrulefill}~от~\makebox[4cm]{\hrulefill}\\
+\hspace{4.5cm} число, месяц, год\\
+Секретарь~\makebox[4cm]{\hrulefill}~~~~~\makebox[5cm]{\hrulefill}\\
+\hspace{2.7cm} подпись, дата \hspace{1.5cm} инициалы, фамилия
+\medskip\\
+Дата выдачи задания~\makebox[4cm]{\hrulefill}\\
+\hspace{4.8cm}число, месяц, год\\
+Задание получил~\makebox[4cm]{\hrulefill}~~~~~\makebox[5cm]{\hrulefill}\\
+\hspace{4.2cm} подпись, дата \hspace{1.4cm} инициалы, фамилия
+\end{flushleft}
+
+\end{document}

@@ -1,0 +1,15 @@
+.DS_Store
+*.aux
+*.dvi
+*.log
+*.out
+*.bak
+*.toc
+*.gz
+*.synctex
+
+/Abstract
+*/images/*
+!*/images/*.eps
+gost780uv.bst
+thesis.bib
