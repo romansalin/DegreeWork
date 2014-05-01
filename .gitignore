@@ -7,6 +7,9 @@
 *.toc
 *.gz
 *.synctex
+*.snm
+*.nav
+*.vrb
 
 /Abstract
 */images/*
