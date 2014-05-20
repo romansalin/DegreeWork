@@ -1,22 +1,46 @@
-\documentclass{beamer}
+\documentclass[10pt,pdf,hyperref={unicode}]{beamer}
+
+% Style of presentation
+\usetheme[numbers, minimal, nologo, nonav]{Statmod}
+
+% Title
+\setbeamertemplate{frametitle}{
+  \begin{centering}
+    \insertframetitle
+    \par
+  \end{centering}
+}
+
+% Footline
+\defbeamertemplate{footline}{centered page number}
+{%
+  \hspace*{\fill}%
+  \insertpagenumber%
+  \hspace*{\fill}\vskip4pt%
+}
+\setbeamertemplate{footline}[centered page number]
+\setbeamerfont{footline}{size=\fontsize{10}{12}\selectfont}
+
+% Color
+\definecolor{mycolor}{rgb}{0.85,0.85,0.85}
+\setbeamercolor{frametitle}{fg=black}
+\setbeamercolor{structure}{bg=mycolor, fg=mycolor}
+\setbeamercolor{palette primary}{use=structure,fg=mycolor,bg=mycolor}
+
+% Fonts
+\usefonttheme[onlylarge]{structurebold}
+
+% Более крупный шрифт для подзаголовков титульного листа
+\setbeamerfont{frametitle}{series=\bfseries}
+
+
+% --------------------------------------------------------------------------%
 
 % Nice cyrillic fonts
 \usepackage{pscyr}
 \renewcommand{\rmdefault}{ftm} % Times New Roman
 %\renewcommand{\sfdefault}{ftx}
 %\renewcommand{\ttdefault}{cmttp} % not good ttf
-
-% Links
-\usepackage{hyperref}
-\hypersetup{
-        unicode=true,
-        colorlinks,
-        citecolor=black,
-        filecolor=black,
-        linkcolor=black,
-        urlcolor=blue
-}
-%\usepackage[all]{hypcap} % fix links to floats
 
 \usepackage{mathtext}
 \usepackage[mathscr]{eucal}
@@ -26,16 +50,8 @@
 \usepackage[utf8]{inputenc} % UTF8
 \usepackage[english,russian]{babel}
 
-%Style of presentation
-%\usetheme{Warsaw}
-
 % Mathematical AMS packages
 \usepackage{amsmath, amsfonts, amsthm, amssymb, amscd}
-
-% Provides support for setting the spacing between lines in a document. Package
-% options include singlespacing, onehalfspacing, and doublespacing.
-%\usepackage{setspace}
-%\onehalfspacing % one half spacing
 
 \usepackage{indentfirst} % indent
 \setlength{\parindent}{1.25cm}
@@ -43,9 +59,6 @@
 % Alternative geometry
 %\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=1.5cm, bindingoffset=0cm,
 % 			headheight=0cm, footskip=1cm, headsep=0cm]{geometry}
-
-% Nice citations [1,2,3,4] -> [1-4]
-\usepackage[numbers,sort&compress]{natbib}
 
 \usepackage{soul} % hyphenation for letterspacing, underlining and more
 
@@ -78,17 +91,6 @@
 % Useful for individually placing figures on a separate page with
 % \afterpage{\clearpage \begin{figure}[p] ... }
 \usepackage{afterpage}
-
-
-% --------------------------------------------------------------------------%
-% Numeration of pages
-% --------------------------------------------------------------------------%
-%\pagestyle{headings}
-\makeatletter
-\renewcommand{\@oddhead}{}
-\renewcommand{\@oddfoot}{\hfil \thepage}
-\setcounter{tocdepth}{2}
-% --------------------------------------------------------------------------%
 
 
 % --------------------------------------------------------------------------%
