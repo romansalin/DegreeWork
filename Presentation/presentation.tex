@@ -1,5 +1,8 @@
 \documentclass[10pt,pdf,hyperref={unicode}]{beamer}
 
+% --------------------------------------------------------------------------%
+% Beamer
+% --------------------------------------------------------------------------%
 % Style of presentation
 \usetheme[numbers, minimal, nologo, nonav]{Statmod}
 
@@ -26,16 +29,21 @@
 \setbeamercolor{frametitle}{fg=black}
 \setbeamercolor{structure}{bg=mycolor, fg=mycolor}
 \setbeamercolor{palette primary}{use=structure,fg=mycolor,bg=mycolor}
+\setbeamercolor{itemize item}{fg=black}
 
 % Fonts
 \usefonttheme[onlylarge]{structurebold}
-
-% Более крупный шрифт для подзаголовков титульного листа
 \setbeamerfont{frametitle}{series=\bfseries}
+
+% Enumerations
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{itemize items}[circle]
+% --------------------------------------------------------------------------%
 
 
 % --------------------------------------------------------------------------%
-
+% Others
+% --------------------------------------------------------------------------%
 % Nice cyrillic fonts
 \usepackage{pscyr}
 \renewcommand{\rmdefault}{ftm} % Times New Roman
@@ -52,13 +60,6 @@
 
 % Mathematical AMS packages
 \usepackage{amsmath, amsfonts, amsthm, amssymb, amscd}
-
-\usepackage{indentfirst} % indent
-\setlength{\parindent}{1.25cm}
-
-% Alternative geometry
-%\usepackage[top=2cm, bottom=2cm, left=2.5cm, right=1.5cm, bindingoffset=0cm,
-% 			headheight=0cm, footskip=1cm, headsep=0cm]{geometry}
 
 \usepackage{soul} % hyphenation for letterspacing, underlining and more
 
@@ -77,12 +78,6 @@
 \usepackage{tikz} % for drawing
 \usetikzlibrary{shapes,arrows}
 
-% Keeps floats `in their place', preventing them from floating past a
-% "\FloatBarrier" command into another section.  The floats should not move
-% past every "\section".
-\usepackage[section]{placeins}
-
-\usepackage{longtable} % long table support
 \usepackage{multirow,makecell,array}	 % advanced table style
 \usepackage{tabularx}
 
@@ -91,38 +86,6 @@
 % Useful for individually placing figures on a separate page with
 % \afterpage{\clearpage \begin{figure}[p] ... }
 \usepackage{afterpage}
-
-
-% --------------------------------------------------------------------------%
-% Table and figure captions
-% --------------------------------------------------------------------------%
-\usepackage{caption}
-\def\CaptionName#1{\gdef\@captionname{#1}}
-\newlength\tmp %10cm
-\setlength{\tmp}{1ex}
-\setlength{\belowcaptionskip}{1ex}
-\setlength{\abovecaptionskip}{1ex}
-
-\captionsetup[table]{name=Таблица, labelsep=endash, format=plain, justification=RaggedRight,
-			singlelinecheck=false, font={small}, position=top}
-\captionsetup[figure]{name=Рисунок, labelsep=endash, justification=centering,
-			font={small}, skip=\abovecaptionskip, position=below}
-% --------------------------------------------------------------------------%
-
-
-% --------------------------------------------------------------------------%
-% Table and figure numbering by sections
-% --------------------------------------------------------------------------%
-\renewcommand{\theequation}{\arabic{section}.\arabic{equation}}
-\renewcommand{\thefigure}{\arabic{section}.\arabic{figure}}
-\renewcommand{\thetable}{\arabic{section}.\arabic{table}}
-
-\makeatletter
-\@addtoreset{equation}{section} % Equation counter
-\@addtoreset{figure}{section} % Figure counter
-\@addtoreset{table}{section} % Table counter
-\makeatother
-% --------------------------------------------------------------------------%
 
 
 % --------------------------------------------------------------------------%
@@ -147,50 +110,6 @@
 %\newtheorem{corollary}{Следствие}
 
 \renewcommand{\proof}{\textbf{Доказательство.}\ignorespaces{\pushQED{\qed}}}
-% --------------------------------------------------------------------------%
-
-
-% --------------------------------------------------------------------------%
-% Enumerations
-% --------------------------------------------------------------------------%
-\makeatletter
-\renewcommand\theenumi  {\@arabic\c@enumi}
-\renewcommand\theenumii {\@asbuk\c@enumii}
-\renewcommand\theenumiii{\@roman\c@enumiii}
-\renewcommand\theenumiv {\@Asbuk\c@enumiv}
-\newcommand\atheenumi{\@asbuk\c@enumi}
-\newcommand\atheenumii{\@asbuk\c@enumii}
-%\renewcommand\labelenumi  {\theenumi.}
-%\renewcommand\labelenumii {\theenumii.}
-%\renewcommand\labelenumiii{\theenumiii.}
-%\renewcommand\labelenumiv {\theenumiv.}
-\renewcommand\p@enumii  {\theenumi}
-\renewcommand\p@enumiii {\theenumi.\theenumii}
-\renewcommand\p@enumiv  {\p@enumiii.\theenumiii}
-%\renewcommand\labelitemi  {\normalfont\bfseries\textemdash}
-%\renewcommand\labelitemii {\normalfont\bfseries\textendash}
-%\renewcommand\labelitemiii{\textperiodcentered}
-%\renewcommand\labelitemiv {\textasteriskcentered}
-
-\renewcommand{\@listI}{%
-\leftmargin=52pt
-\rightmargin=0pt
-\labelsep=7pt
-\labelwidth=20pt
-\itemindent=0pt
-\listparindent=0pt
-\topsep=4pt plus 2pt minus 4pt
-\partopsep=0pt plus 1pt minus 1pt
-\parsep=0pt plus 1pt
-\itemsep=\parsep}
-\makeatother
-
-% Compressed lists: compactitem etc.
-\usepackage{paralist}
-
-\usepackage{enumitem}
-\setlist[itemize]{fullwidth, listparindent=\parindent}
-\setlist[enumerate]{fullwidth, itemindent=\parindent, listparindent=\parindent}
 % --------------------------------------------------------------------------%
 
 

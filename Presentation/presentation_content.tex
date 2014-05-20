@@ -1,7 +1,7 @@
-%\title{Все что вы хотели знать о сферическом коне в вакууме, но боялись спросить}
-%\author{Олень Северный}
-%\institute{Научно исследовательский институт физико-матетматических проблем}
-%\date{Москва, 2010}
+%\title{Исследование производственных систем с маршрутизацией, зависящей от состояния}
+%\author{Салин Роман Владимирович}
+%\institute{САРАТОВСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ ИМЕНИ Н.Г. ЧЕРНЫШЕВСКОГО}
+%\date{Саратов, 2014}
 
 \begin{frame}[plain]
 \begin{center}
@@ -49,28 +49,77 @@
 
 % ------------------------------------------------------------------- %
 
-\begin{frame} \frametitle{Заголовок}
-Марковский процесс $\overline{\eta}(\tau)$, определенный в пространстве состояний $S$ и управляемый PSQ--маршрутизацией, как определено в~(\ref{eq:2.2}), является обратимым относительно времени и имеет следующую мультипликативную форму стационарного распределения вероятностей:
- \begin{equation}
-  \pi(\overline{\eta}) = G^{-1} \prod_{i=0}^L \left[ \prod_{j=1}^{n_i} \nu_i^{-1} (j) \right]
-  \left[ \prod_{t=1}^T \prod_{j=1}^{n_{it}} \frac{r_{it} (j - 1 + \delta_{i0})}{j\mu_{it}} \right], \quad \overline{\eta} \in S ,
-  \label{eq:2.4}
- \end{equation}
-где $\delta_{i0}=1$, если $i=0$, иначе $\delta_{i0}=0$, и $G$~--- нормализующая константа.
+\begin{frame} \frametitle{Цели и задачи дипломной работы}
+\begin{itemize}
+\item исследование производственных систем с маршрутизацией, зависящей от состояния;
+\item разработка алгоритма метода анализа производственных систем с маршрутизацией, зависящей от состояния;
+\item программная реализация алгоритма;
+\item проведение численных экспериментов с разработанной программой
+\end{itemize}
 \end{frame}
 
 % ------------------------------------------------------------------- %
 
-\begin{frame} \frametitle{Заголовок}
+\begin{frame} \frametitle{Производственные системы с маршрутизацией, зависящей от состояния}
 
 \end{frame}
 
 % ------------------------------------------------------------------- %
 
-\begin{frame} \frametitle{Заголовок}
-
+\begin{frame} \frametitle{Производственные системы с маршрутизацией, зависящей от состояния}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{fms}
+  \label{fig:main}
+\end{figure}
 \end{frame}
 
+% ------------------------------------------------------------------- %
 
+\begin{frame} \frametitle{Интерфейс программы}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{main}
+  \label{fig:main}
+\end{figure}
+\end{frame}
 
+% ------------------------------------------------------------------- %
 
+\begin{frame} \frametitle{Интерфейс программы}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.8\textwidth]{results}
+  \label{fig:main}
+\end{figure}
+\end{frame}
+
+% ------------------------------------------------------------------- %
+
+\begin{frame} \frametitle{Зависимость стационарных характеристик ГПС от числа приборов}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{graph1}
+  \label{fig:main}
+\end{figure}
+\end{frame}
+
+% ------------------------------------------------------------------- %
+
+\begin{frame} \frametitle{Зависимость стационарных характеристик ГПС от емкостей рабочих станций}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{graph2}
+  \label{fig:main}
+\end{figure}
+\end{frame}
+
+% ------------------------------------------------------------------- %
+
+\begin{frame} \frametitle{Зависимость стационарных характеристик ГПС от интенсивностей обработки деталей}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.9\textwidth]{graph3}
+  \label{fig:main}
+\end{figure}
+\end{frame}
