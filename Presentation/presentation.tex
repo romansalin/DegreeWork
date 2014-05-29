@@ -87,29 +87,6 @@
 % \afterpage{\clearpage \begin{figure}[p] ... }
 \usepackage{afterpage}
 
-
-% --------------------------------------------------------------------------%
-% Theorem, proof, definition, lemma, proposition, corollary
-% --------------------------------------------------------------------------%
-\newtheoremstyle{note}  % name
-     {3mm}              % Space above
-     {3mm}              % Space below
-     {}                 % Body font
-     {\parindent}       % Indent amount (empty = no indent, \parindent = para indent)
-     {\bfseries}        % Thm head font
-     {.}                % Punctuation after thm head
-     { }                % Space after thm head: " " = normal interword space; \newline = linebreak
-     {}                 % Thm head spec (can be left empty, meaning 'normal')
-
-\theoremstyle{note}
-
-%\newtheorem{definition}{Определение}
-%\newtheorem{theorem}{Теорема}
-%\newtheorem{lemma}{Лемма}
-\newtheorem{proposition}{Предложение}
-%\newtheorem{corollary}{Следствие}
-
-\renewcommand{\proof}{\textbf{Доказательство.}\ignorespaces{\pushQED{\qed}}}
 % --------------------------------------------------------------------------%
 
 
